@@ -56,6 +56,7 @@ despertares     -0.07068230 -0.05478021  -0.1090626  1.00000000  0.1138424   -0.
 descanso        -0.43478744  0.23324218   0.1103792  0.11384241  1.0000000   -0.21141508  0.06003050
 horas_trabajo    0.08741377 -0.05163258   0.1793449 -0.08421950 -0.2114151    1.00000000 -0.01221042
 edad            -0.03470262  0.01846828   0.3704612 -0.17749467  0.0600305   -0.01221042  1.00000000
+
 ---
 
 ## Gráfica de dispersión
@@ -109,7 +110,9 @@ La variable de consumo de cafeína no pudo ser estimada en el modelo (NA), lo qu
 ## Código en R
 
 El código completo utilizado para el análisis se encuentra disponible en el repositorio.
+
 (https://github.com/ilssemares/My-Data-Bases-/blob/main/C%C3%B3digo%20de%20Encuesta)
+
 ---
 
 ## Conclusión
