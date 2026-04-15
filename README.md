@@ -8,7 +8,8 @@ Este proyecto tiene como objetivo analizar la relación entre los hábitos de su
 
 El formulario utilizado para la recolección de datos se puede consultar en el siguiente enlace:
 
-[Ver encuesta]https://docs.google.com/forms/d/e/1FAIpQLSfj08kTJfbpk-jcBUnYkFwJ3y6qSrjQ58ivA6VouR9Sv55BvA/viewform?usp=header
+[Ver encuesta https://docs.google.com/forms/d/e/1FAIpQLSfj08kTJfbpk-jcBUnYkFwJ3y6qSrjQ58ivA6VouR9Sv55BvA/viewform?usp=header
+]
 
 ## Base de datos
 
