@@ -1,0 +1,71 @@
+datos <- read_excel("encuesta_sueño.csv.xlsx")
+View(datos)
+# 2. Renombrar columnas para facilitar el análisis
+colnames(datos) <- c(
+  "timestamp",
+  "productividad",
+  "horas_sueno",
+  "uso_celular",
+  "despertares",
+  "hora_dormir",
+  "cafeina",
+  "descanso",
+  "horas_trabajo",
+  "edad"
+)
+
+# 3. Verificar datos
+summary(datos)
+
+# 4. Convertir variables necesarias
+# (Importante porque algunas pueden venir como texto)
+
+datos$productividad <- as.numeric(datos$productividad)
+datos$horas_sueno <- as.numeric(datos$horas_sueno)
+datos$uso_celular <- as.numeric(datos$uso_celular)
+datos$despertares <- as.numeric(datos$despertares)
+datos$descanso <- as.numeric(datos$descanso)
+datos$horas_trabajo <- as.numeric(datos$horas_trabajo)
+datos$edad <- as.numeric(datos$edad)
+
+# Convertir cafeína a variable binaria (Sí=1, No=0)
+datos$cafeina <- ifelse(datos$cafeina == "Sí", 1, 0)
+
+# 5. Modelo de Regresión Lineal
+modelo <- lm(productividad ~ horas_sueno + uso_celular + despertares + descanso + horas_trabajo + edad + cafeina, data = datos)
+
+# 6. Resultados del modelo
+summary(modelo)
+
+# 7. Matriz de correlación
+matriz_cor <- cor(datos[, c("productividad", "horas_sueno", "uso_celular", "despertares", "descanso", "horas_trabajo", "edad")], use="complete.obs")
+print(matriz_cor)
+
+# 8. Gráfica: Sueño vs Productividad
+plot(datos$horas_sueno, datos$productividad,
+     main="Relación entre Horas de Sueño y Productividad",
+     xlab="Horas de sueño", ylab="Productividad",
+     pch=19, col="blue")
+
+abline(lm(productividad ~ horas_sueno, data = datos), col="red")
+
+# 9. Gráfica: Uso del celular vs Descanso
+plot(datos$uso_celular, datos$descanso,
+     main="Uso del celular vs Nivel de descanso",
+     xlab="Horas de uso del celular", ylab="Descanso",
+     pch=19, col="purple")
+
+abline(lm(descanso ~ uso_celular, data = datos), col="red")
+# Modelo de regresión lineal múltiple
+modelo <- lm(productividad ~ horas_sueno + uso_celular + despertares + descanso + horas_trabajo + edad + cafeina, data = datos)
+
+# Ver resultados
+summary(modelo)
+png("regresion_sueno_productividad.png")
+
+plot(datos$horas_sueno, datos$productividad,
+     main="Regresión: Sueño vs Productividad",
+     xlab="Horas de sueño", ylab="Productividad",
+     pch=19, col="blue")
+
+abline(lm(productividad ~ horas_sueno, data = datos), col="red", lwd=2)
